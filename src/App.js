@@ -6,7 +6,7 @@ import Properties from './pages/Properties';
 import SingleProperty from './pages/SingleProperty';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
-import Testimonials from './pages/Testimonials';
+import Blogs from './pages/Blogs';
 import Error from './pages/Error';
 
 import {Route, Switch} from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
       <Route exact path="/properties/:slug" component={SingleProperty} />
       <Route exact path="/about-us" component={AboutUs} />
       <Route exact path="/contact-us" component={ContactUs} />
-      <Route exact path="/testimonials" component={Testimonials} />
+      <Route exact path="/blogs" component={Blogs} />
       <Route component={Error} />
     </Switch>
     </>

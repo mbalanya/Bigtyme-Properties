@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Hero>
-                <Banner title="Bigtyme Properties" subtitle="This is 'your property partner' where we help our clients solve the land equation">
+                <Banner title="Bigtyme Properties" subtitle="'your property partner'" subtitle2="This is where we help you solve the land equation">
                     <Link to='/properties' className="btn-primary">
                         View Properties
                     </Link>

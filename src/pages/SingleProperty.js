@@ -5,6 +5,7 @@ import Banner from '../components/Banner';
 import {Link} from 'react-router-dom';
 import {PropertyContext} from '../context';
 import StyledHero from '../components/StyledHero';
+import NumberFormat from 'react-number-format';
 
 export default class SingleProperty extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export default class SingleProperty extends Component {
                 </Link>
             </div>
         }
-        const {name, description, capacity, size, price, extras, breakfast, titledeed, images} = property;
+        const {name, description, bedrooms, size, price, extras, breakfast, titledeed, images} = property;
         const [mainImg, ...defaultImg] = images;
         console.log(defaultImg);
         return (
@@ -48,17 +49,20 @@ export default class SingleProperty extends Component {
                     })}
                 </div>
                 <div className='single-property-info'>
+                    <div className="single-property-contact">
+                        <h5><a href = 'tel:+254721162028' target="_blank">Contact: +254 721 162 028</a></h5>
+                    </div>
                     <article className='desc'>
                         <h3>details</h3>
                         <p>{description}</p>
                     </article>
                     <article className='info'>
                         <h3>info</h3>
-                    <h6>price : Ksh. {price}</h6>
+                    <h6>Price : <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Ksh.'} /></h6>
                     <h6>size : {size} SQFT</h6>
                     <h6>
                         Bedrooms : {" "}
-                        {capacity > 1 ? `${capacity} bedrooms` : `${capacity} bedroom`}
+                        {bedrooms > 1 ? `${bedrooms} bedrooms` : `${bedrooms} bedroom`}
                     </h6>
                     <h6>
                         {titledeed ? "Title deed available" : "Title deed not available"}
@@ -74,6 +78,7 @@ export default class SingleProperty extends Component {
                     })}
                 </ul>
             </section>
+            
         </>
         );
     }

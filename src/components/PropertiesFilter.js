@@ -2,6 +2,7 @@ import React from 'react';
 import {useContext} from 'react';
 import {PropertyContext} from '../context';
 import Title from '../components/Title';
+import NumberFormat from 'react-number-format';
 
 //get all unique values
 const getUnique = (items,value) => {
@@ -56,7 +57,7 @@ export default function PropertiesFilter({properties}) {
                 {/* property price */}
                 <div className='form-group'>
                     <label htmlFor='price'>
-                        property price ${price}
+                        property price <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Ksh.'} />
                     </label>
                     <input type='range' name='price' min={minPrice} max={maxPrice} id='price' value={price} onChange={handleChange} className='form-control' />
                 </div>
@@ -64,7 +65,7 @@ export default function PropertiesFilter({properties}) {
 
                 {/* size */}
                 <div className='form-group'>
-                    <label htmlFor='size'>property size (M<sup>2</sup>)</label>
+                    <label htmlFor='size'>property size (SQFT)</label>
                     <div className='size-inputs'>
                         <input type='number' name='minSize' id='size' value={minSize} onChange={handleChange} className='size-input' />
                         <input type='number' name='maxSize' id='size' value={maxSize} onChange={handleChange} className='size-input' />
